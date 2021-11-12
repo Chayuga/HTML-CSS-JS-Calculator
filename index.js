@@ -24,6 +24,13 @@ const calculate = () => {
 
   display.innerText = result;
   firstValue = result;
+
+  // TODO: Clear display of result and start another calculation if symbol is not present
+  if (result && !symbol) {
+    display.innerText = "";
+    firstValue = btnValue;
+  }
+
   secondValue = "";
 };
 
@@ -36,8 +43,18 @@ for (let button of controlButtons) {
     // Declare buttons with symbols value
     const btnValueIsSymbol = allSymbols.includes(btnValue);
 
+    // Prevent the calculation if the secondValue is missing
+    if (!secondValue && btnValue === "=") return null;
+
+    // Create clear functionality, by assigning it to C
+    if (btnValue === "C") {
+      firstValue = secondValue = symbol = "";
+      return (display.innerText = "");
+    }
+
     // Conditional statement to detect button pressed
     if (firstValue && btnValueIsSymbol) {
+      // If the secondValue exists do the cclculation
       secondValue && calculate();
       symbol = btnValue;
     } else if (!symbol) firstValue += btnValue;
