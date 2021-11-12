@@ -25,12 +25,6 @@ const calculate = () => {
   display.innerText = result;
   firstValue = result;
 
-  // TODO: Clear display of result and start another calculation if symbol is not present
-  if (result && !symbol) {
-    display.innerText = "";
-    firstValue = btnValue;
-  }
-
   secondValue = "";
 };
 
@@ -64,3 +58,11 @@ for (let button of controlButtons) {
     // display.innerText = button.innerText;
   });
 }
+
+// TODO: Clear display of result and start another calculation if symbol is not present
+
+// TODO: Add backspace functionality
+
+// TODO: If the last character in the display is a symbol and the use replace last character with the new symbol
+
+// TODO: Fix => if the result is 0, calculator stops calculating
